@@ -9,7 +9,7 @@ document.addEventListener('click', function (event) {
 		modal.showModal()
 	}
 
-	if (target.closest('.close-modal') || target.closest('.modal')) {
+	if (target.closest('.close-modal') || target === modal) {
 		modal.close()
 	}
 

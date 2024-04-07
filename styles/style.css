@@ -152,7 +152,6 @@ h1 {
 }
 
 .modal {
-	padding: 15px;
 	border-radius: 15px;
 	margin: auto;
 	&::backdrop {
@@ -160,10 +159,14 @@ h1 {
 	}
 }
 
+.modal__inner {
+	padding: 15px;
+}
+
 .close-modal {
 	position: absolute;
-	right: 0;
-	top: 0;
+	right: 15px;
+	top: 15px;
 	font-size: 24px;
 }
 

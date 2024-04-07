@@ -12,22 +12,10 @@ splide.mount()
 //   ====================================
 
 const moviesData = [
-	{
-		id: 0,
-		name: 'matrix',
-	},
-	{
-		id: 1,
-		name: 'titanic',
-	},
-	{
-		id: 2,
-		name: 'terminator',
-	},
-	{
-		id: 3,
-		name: 'mask',
-	},
+	{ id: 0, name: 'matrix' },
+	{ id: 1, name: 'titanic' },
+	{ id: 2, name: 'terminator' },
+	{ id: 3, name: 'mask' },
 ]
 
 const rightLettersElem = document.querySelector('.right-letters')
@@ -37,22 +25,23 @@ const chansesElem = document.querySelector('.chanses')
 const pressedKeys = []
 let chanses = 10
 let movieLetters
-
+let previousMovie, movie
 const setRandomMovie = () => {
-	const movie = moviesData[Math.floor(Math.random() * moviesData.length)]
-	splide.go(movie.id)
-	console.log(movie.name)
-	movieLetters = movie.name.split('')
+	do {
+		previousMovie = movie
+		movie = moviesData[Math.floor(Math.random() * moviesData.length)].name
+        console.log(movie);
+	} while (movie === previousMovie)
+
+	splide.go(moviesData.find(item => item.name === movie).id)
+	movieLetters = movie.split('')
 	pressedKeys.length = 0
 	chanses = 10
 	rightLettersElem.textContent = '-'.repeat(movieLetters.length)
 	wrongLettersElem.textContent = ''
 	chansesElem.textContent = chanses
-}
 
-const decreaseChanses = () => {
-	chansesElem.textContent = chanses
-	chanses--
+	console.log(movie, previousMovie)
 }
 
 const handleKeydown = e => {
@@ -67,18 +56,20 @@ const handleKeydown = e => {
 		})
 	} else {
 		chansesElem.textContent = --chanses
-		wrongLettersElem.textContent += `${pressedKey},`
+		wrongLettersElem.textContent += `${pressedKey}, `
 	}
 
-	checkWin()
+	setTimeout(() => {
+		checkWin()
+	}, 100)
 }
 
 const checkWin = () => {
 	if (chanses === 0) {
-		alert('You lose')
+		alert('Siz Uduzduz')
 		setRandomMovie()
 	} else if (rightLettersElem.textContent === movieLetters.join('')) {
-		console.log('You win')
+		alert('Siz Udduz')
 		setRandomMovie()
 	}
 }
