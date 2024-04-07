@@ -26,13 +26,28 @@ header {
 	place-content: center;
 }
 
+h1 {
+	text-align: center;
+}
+
 .nav {
 	padding: 20px 0;
 	font-size: 18px;
+	margin-bottom: 30px;
 	ul {
 		display: flex;
 		align-items: center;
-		gap: 15px;
+		gap: 25px;
+	}
+	a {
+		display: block;
+		transition: all 0.3s ease 0s;
+		text-decoration: none;
+		&:hover {
+			color: rgb(255, 115, 0);
+			transform: scale(1.2);
+			text-decoration: underline;
+		}
 	}
 }
 
@@ -204,7 +219,7 @@ body {
 		transition: all 0.8s ease 0s;
 		border-radius: 10px;
 		.dark & {
-		background-color: #fff
+			background-color: #fff;
 		}
 	}
 }
@@ -251,12 +266,97 @@ body {
 		border: 1px solid #f7841a;
 		cursor: pointer;
 		transition: all 0.3s ease 0s;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 25px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		font-size: 25px;
 		&:hover {
 			background-color: #fcfcfc;
 		}
 	}
+}
+
+/* ==============Hangman====================== */
+
+.hangman {
+}
+.hangman-title {
+	font-size: clamp(15px, 5vw, 20px);
+	text-wrap: balance;
+	text-align: center;
+	margin: 0 auto 40px;
+	background-color: #c9c9c9;
+	max-width: fit-content;
+
+	border-radius: 10px;
+	padding: 30px;
+}
+
+.hangman__image {
+	max-width: 100%;
+	width: 100%;
+	height: 100%;
+	border-radius: 10px;
+	object-fit: cover;
+}
+
+.hangman__wrapper {
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	gap: 20px;
+	max-width: 95vw;
+	margin: 0 auto;
+	@media (max-width: 991.98px) {
+		grid-template-rows: repeat(2, 1fr);
+		grid-template-columns: 1fr;
+		height: 100%;
+	}
+}
+
+.splide {
+}
+
+.hangman__box {
+	height: 100%;
+	border-radius: 10px;
+	background-color: #ccc;
+	display: flex;
+	flex-direction: column;
+	gap: 20px;
+	text-align: center;
+}
+
+.chanses {
+	margin-top: 20px;
+	text-align: center;
+	font-size: 22px;
+	font-weight: 600;
+	color: red;
+	text-transform: uppercase;
+	letter-spacing: 1px;
+}
+
+.wrong-letters {
+	padding-top: 20px;
+	text-align: center;
+	font-size: 18px;
+	font-weight: 600;
+	color: red;
+	text-transform: uppercase;
+	letter-spacing: 1px;
+}
+
+.right-letters {
+	flex-grow: 1;
+	padding-top: 20px;
+	text-align: center;
+	font-size: 35px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-weight: 600;
+	color: green;
+	text-transform: uppercase;
+	letter-spacing: 1px;
+	height: 100%;
 }

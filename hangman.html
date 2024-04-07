@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles/style.css">
+    <title>Hangman Game</title>
+</head>
+
+<body>
+
+    <header>
+        <h1>Home Works</h1>
+        <nav class="nav">
+            <ul>
+                <li>
+                    <a href="./index.html">Progress</a>
+                </li>
+                <li>
+                    <a href="./modal.html">Modal</a>
+                </li>
+                <li>
+                    <a href="./theme.html">Theme</a>
+                </li>
+                <li>
+                    <a href="./game.html">X / O</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+
+    <div class='hangman'>
+        <h3 class='hangman-title'>
+            If you had a childhood in the 90's, it will be easy to guess by looking at these pictures. So let's start...
+        </h3>
+
+        <div class='hangman__wrapper'>
+            <div class='splide'>
+                <div class='splide__track'>
+                    <div class='splide__list'>
+                        <div class='splide__slide'><img class="hangman__image" src="img/films/1.webp" alt="movie image"></div>
+                        <div class='splide__slide'><img class="hangman__image" src="img/films/2.jpg" alt="movie image"></div>
+                        <div class='splide__slide'><img class="hangman__image" src="img/films/3.jpg" alt="movie image"></div>
+                        <div class='splide__slide'><img class="hangman__image" src="img/films/4.webp" alt="movie image"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class='hangman__box'>
+                <p class='wrong-letters'></p>
+                <p class='chanses'>10</p>
+                <p class='right-letters'></p>
+            </div>
+        </div>
+
+    </div>
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js"></script>
+    <script src="js/hangman.js"></script>
+</body>
+
+</html>
