@@ -30,7 +30,7 @@ const setRandomMovie = () => {
 	do {
 		previousMovie = movie
 		movie = moviesData[Math.floor(Math.random() * moviesData.length)].name
-        console.log(movie);
+		console.log(movie)
 	} while (movie === previousMovie)
 
 	splide.go(moviesData.find(item => item.name === movie).id)
@@ -44,26 +44,6 @@ const setRandomMovie = () => {
 	console.log(movie, previousMovie)
 }
 
-const handleKeydown = e => {
-	const pressedKey = e.key.toLowerCase()
-	pressedKeys.push(pressedKey)
-
-	if (movieLetters.includes(pressedKey)) {
-		movieLetters.forEach((letter, index) => {
-			if (letter === pressedKey) {
-				rightLettersElem.textContent = rightLettersElem.textContent.slice(0, index) + letter + rightLettersElem.textContent.slice(index + 1)
-			}
-		})
-	} else {
-		chansesElem.textContent = --chanses
-		wrongLettersElem.textContent += `${pressedKey}, `
-	}
-
-	setTimeout(() => {
-		checkWin()
-	}, 100)
-}
-
 const checkWin = () => {
 	if (chanses === 0) {
 		alert('Siz Uduzduz')
@@ -74,5 +54,32 @@ const checkWin = () => {
 	}
 }
 
-document.addEventListener('keydown', handleKeydown)
-setRandomMovie()
+const handleKeydown = e => {
+	const pressedKey = e.key.toLowerCase()
+
+	if (/^[a-z]$/.test(pressedKey) && !e.altKey && !e.ctrlKey && !e.metaKey && !e.shiftKey) {
+		pressedKeys.push(pressedKey)
+
+		if (movieLetters.includes(pressedKey)) {
+			movieLetters.forEach((letter, index) => {
+				if (letter === pressedKey) {
+					rightLettersElem.textContent = rightLettersElem.textContent.slice(0, index) + letter + rightLettersElem.textContent.slice(index + 1)
+				}
+			})
+		}
+
+		if (chanses > 0) {
+			chansesElem.textContent = --chanses
+			wrongLettersElem.textContent += `${pressedKey}, `
+		}
+
+		setTimeout(() => {
+			checkWin()
+		}, 100)
+	}
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+	document.addEventListener('keydown', handleKeydown)
+	setRandomMovie()
+})
