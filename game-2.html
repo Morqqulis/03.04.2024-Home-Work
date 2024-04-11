@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles/style.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <header>
+        <h1>Home Works</h1>
+        <nav class="nav">
+            <ul>
+                <li>
+                    <a href="./index.html">Progress</a>
+                </li>
+                <li>
+                    <a href="./modal.html">Modal</a>
+                </li>
+                <li>
+                    <a href="./theme.html">Theme</a>
+                </li>
+                <li>
+                    <a href="./game.html">X / O</a>
+                </li>
+                <li>
+                    <a href="./hangman.html">Hangman</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+
+    <section class='hero'>
+        <div class="container">
+            <div class="start-bg">
+                <button class="start-btn">Start Game</button>
+            </div>
+
+            <div class='heading'>
+                <p class='winner'></p>
+                <h2>Game Statistic</h2>
+                <div class="scores">
+                    <div class="player-score score">Player Score:</div>
+                    <div class="computer-score score">Computer Score:</div>
+                    <div class="draw-score score">Draw Score:</div>
+                </div>
+            </div>
+            <div class="game">
+                <div class='player'>
+                    <div class="player-chose">
+                        <img src="./img/game-2/human.png" alt="Human icon">
+                        <p class='chose-text'></p>
+                    </div>
+                    <div class="col player-choses">
+                        <button class='chose-btn' id='1' type="button" data-chose="Paper"><img class='chose-btn__img' src="./img/game-2/paper.png" alt="Game icon"></button>
+                        <button class='chose-btn' id='2' type="button" data-chose="Stone"><img class='chose-btn__img' src="./img/game-2/stone.png" alt="Game icon"></button>
+                        <button class='chose-btn' id='3' type="button" data-chose="Scissors"><img class='chose-btn__img' src="./img/game-2/scissors.png" alt="Game icon"></button>
+                    </div>
+                </div>
+                <div class='computer'>
+                    <div class="computer-chose">
+                        <img src="./img/game-2/bot.png" alt="bot Icon">
+                        <p class='chose-text'></p>
+                    </div>
+                    <div class="col computer-choses">
+                        <button class='chose-btn' id='4' disabled type="button" data-chose="Paper"><img class='chose-btn__img' src="./img/game-2/paper.png" alt="Game icon"></button>
+                        <button class='chose-btn' id='5' disabled type="button" data-chose="Stone"><img class='chose-btn__img' src="./img/game-2/stone.png" alt="Game icon"></button>
+                        <button class='chose-btn' id='6' disabled type="button" data-chose="Scissors"><img class='chose-btn__img' src="./img/game-2/scissors.png" alt="Game icon"></button>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    </section>
+
+    <script src="js/game-2.js"></script>
+</body>
+
+</html>
