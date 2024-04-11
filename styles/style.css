@@ -559,5 +559,6 @@ body {
 	&.draw {
 		color: orange;
 		opacity: 1;
+        
 	}
 }
